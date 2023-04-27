@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:school_docs/app/registration/presentation/presentation.dart';
+import 'package:school_docs/utils/utils.dart';
+
+// TODO: add school property for go_router params
+/// TODO: change to [StatelessWidget] and add Provider for the Year
+class SelectYearPage extends StatefulWidget {
+  const SelectYearPage({Key? key}) : super(key: key);
+
+  @override
+  State<SelectYearPage> createState() => _SelectYearPageState();
+}
+
+class _SelectYearPageState extends State<SelectYearPage> {
+  int selectedYear = 0;
+
+  void changeYear(value) {
+    setState(() {
+      selectedYear = value;
+      print('selected year is year - $value ($selectedYear)');
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaffoldForSelectionList(
+        title: 'Select Year of Studies',
+        child: ListView(children: [
+          Card(
+              child: RadioListTile(
+            value: 1,
+            groupValue: selectedYear,
+            onChanged: changeYear,
+            title: const Text('Year 1'),
+            selected: selectedYear == 1,
+            selectedTileColor: Colors.indigo[100],
+          )),
+          Card(
+              child: RadioListTile(
+                value: 2,
+                groupValue: selectedYear,
+                onChanged: changeYear,
+                title: const Text('Year 2'),
+                selected: selectedYear == 2,
+                selectedTileColor: Colors.indigo[100],
+              )),
+          Card(
+              child: RadioListTile(
+                value: 3,
+                groupValue: selectedYear,
+                onChanged: changeYear,
+                title: const Text('Year 3'),
+                selected: selectedYear == 3,
+                selectedTileColor: Colors.indigo[100],
+              )),
+          Card(
+              child: RadioListTile(
+                value: 4,
+                groupValue: selectedYear,
+                onChanged: changeYear,
+                title: const Text('Year 4'),
+                selected: selectedYear == 4,
+                selectedTileColor: Colors.indigo[100],
+              )),
+          Card(
+              child: RadioListTile(
+                value: 5,
+                groupValue: selectedYear,
+                onChanged: changeYear,
+                title: const Text('Year 5'),
+                selected: selectedYear == 5,
+                selectedTileColor: Colors.indigo[100],
+              )),
+          VerticalSpacings.xxl,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton.icon(
+                  onPressed: () {
+                    if (selectedYear == 0) {
+                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Please Select a Year First')));
+                    } else {
+                      while(context.canPop()){
+                        context.pop();
+                      }
+                      context.pushReplacementNamed(Routes.home);
+                    }
+                  },
+                  label: const Text('Start Reading'),
+                  icon: const Icon(Icons.read_more)),
+            ],
+          )
+        ]));
+  }
+}

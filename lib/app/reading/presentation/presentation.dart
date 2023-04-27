@@ -1,0 +1,1 @@
+export 'package:school_docs/app/reading/presentation/screens/screens.dart';

@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(kAppName),
+        title: Text(GoRouter.of(context).location, style: TextStyle(fontSize: 10),),
         leading:
             Padding(
               padding: const EdgeInsets.fromLTRB(Spacings.sm, 0, 0, 0),

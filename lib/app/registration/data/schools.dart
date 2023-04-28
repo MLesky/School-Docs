@@ -1,7 +1,6 @@
 import 'package:school_docs/app/registration/data/data.dart';
 import 'package:school_docs/app/registration/models/models.dart';
 
-// TODO: set departments for each school
 final List<School> listOfSchools = [
   School(name: 'College of Technology', abbreviation: 'COLTECH', departments: listOfColtechDepartments),
   School(name: 'National Polytechnic Higher Institute', abbreviation: 'NAPHI', departments: listOfNahpiDepartments),

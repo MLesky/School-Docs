@@ -23,7 +23,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(GoRouter.of(context).location, style: TextStyle(fontSize: 10),),
         centerTitle: true,
       ),
       body: Padding(

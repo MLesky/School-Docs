@@ -15,9 +15,9 @@ class Routes {
   static const String settings = 'settings';
 }
 
-// TODO: add params for school, department and options routes
+// TODO: redirect on error route
 
-GoRouter routes = GoRouter(initialLocation: '/home', routes: [
+GoRouter routes = GoRouter(initialLocation: '/welcome/select_school', routes: [
   GoRoute(
       path: Routes.welcome,
       builder: ((context, state) => const WelcomeScreen()),

@@ -19,7 +19,7 @@ class ScaffoldForSelectionList extends StatelessWidget {
           },
         ),
         title: Text(
-          title,
+            GoRouter.of(context).location, style: TextStyle(fontSize: 10),
         ),
         actions: [
           IconButton(

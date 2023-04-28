@@ -6,7 +6,10 @@ import 'package:school_docs/utils/utils.dart';
 // TODO: add school property for go_router params
 /// TODO: change to [StatelessWidget] and add Provider for the Year
 class SelectYearPage extends StatefulWidget {
-  const SelectYearPage({Key? key}) : super(key: key);
+  const SelectYearPage({super.key, required this.school, required this.department, required this.option});
+  final String school;
+  final String department;
+  final String option;
 
   @override
   State<SelectYearPage> createState() => _SelectYearPageState();
@@ -26,7 +29,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
   Widget build(BuildContext context) {
     return ScaffoldForSelectionList(
         title: 'Select Year of Studies',
-        child: ListView(children: [
+        child: ListView(
+            children: [
           Card(
               child: RadioListTile(
             value: 1,

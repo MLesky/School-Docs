@@ -8,7 +8,12 @@ class SelectSchoolPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldForSelectionList(title: 'Select School',
-    child: SelectionListScreen(listItems: listOfSchools, path: Routes.selectDepartment,));
+    return ScaffoldForSelectionList(
+        title: 'Select School',
+        child: SelectionListScreen(
+          listItems: listOfSchools,
+          path: Routes.selectDepartment,
+          paramType: 'school',
+        ));
   }
 }

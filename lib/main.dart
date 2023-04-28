@@ -9,11 +9,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // TODO: add screen loader
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: kAppName,
       theme: Themes.lightTheme,
       routerConfig: routes,
     );

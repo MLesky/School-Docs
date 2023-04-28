@@ -1,11 +1,11 @@
 {
-    "name": "school_docs",
+    "name": "School Docs",
     "short_name": "school_docs",
-    "start_url": ".",
+    "start_url": "",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Read School Notes.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

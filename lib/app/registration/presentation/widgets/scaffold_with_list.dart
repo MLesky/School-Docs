@@ -19,9 +19,16 @@ class ScaffoldForSelectionList extends StatelessWidget {
           },
         ),
         title: Text(
-          title,
+            GoRouter.of(context).location, style: TextStyle(fontSize: 10),
         ),
-        toolbarHeight: 50,
+        actions: [
+          IconButton(
+            onPressed: () {
+              print('You clicked the refresh button');
+            },
+            icon: const Icon(Icons.refresh),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(

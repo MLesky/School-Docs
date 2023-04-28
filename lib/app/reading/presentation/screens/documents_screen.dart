@@ -3,10 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:school_docs/utils/utils.dart';
 
-// TODO: SVG icon color
+class DocumentPage extends StatefulWidget {
+  const DocumentPage({Key? key}) : super(key: key);
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  @override
+  State<DocumentPage> createState() => _DocumentPageState();
+}
+
+class _DocumentPageState extends State<DocumentPage> {
+
+  IconData viewTypeIcon = Icons.grid_view;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +20,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(kAppName),
         leading:
-            Padding(
-              padding: const EdgeInsets.fromLTRB(Spacings.sm, 0, 0, 0),
-              child: SvgPicture.asset(Assets.logoWhite, color: Colors.white,),
-            ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(Spacings.sm, 0, 0, 0),
+          child: SvgPicture.asset(Assets.logoWhite, color: Colors.white,),
+        ),
         leadingWidth: 50,
         actions: [
           IconButton(
@@ -25,6 +31,14 @@ class HomePage extends StatelessWidget {
               print('You clicked the refresh button');
             },
             icon: const Icon(Icons.refresh),
+          ),
+          IconButton(
+            onPressed: () {
+              setState(() {
+                viewTypeIcon = viewTypeIcon == Icons.grid_view ? Icons.list : Icons.grid_view;
+              });
+            },
+            icon: Icon(viewTypeIcon),
           ),
           IconButton(
             onPressed: () {

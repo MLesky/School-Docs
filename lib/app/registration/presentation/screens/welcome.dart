@@ -36,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Text(
-                'Access and read your school documents and files in one place',
+                'Access and read your school document.dart and files in one place',
                 textScaleFactor: 1.2,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge),

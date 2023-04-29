@@ -11,47 +11,126 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Expanded(child: VerticalSpacings.xxl),
-          Column(
-            children: [
-              SvgPicture.asset(
-                Assets.logoPrimary,
-                width: 70,
-              ),
-              VerticalSpacings.xs,
-              Text(
-                kAppName,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-            ],
-          ),
-          VerticalSpacings.xl,
-          SvgPicture.asset(
-            Assets.imagesReading,
-            width: 300,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Text(
-                'Access and read your school document.dart and files in one place',
-                textScaleFactor: 1.2,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge),
-          ),
-          VerticalSpacings.xxl,
-          ElevatedButton.icon(
-              onPressed: () {
-                context.pushNamed(Routes.selectSchool);
-                print(GoRouter.of(context).location);
-              },
-              icon: const Icon(Icons.send),
-              label: const Text('Get Started')),
-          const Expanded(child: VerticalSpacings.xxl),
-        ],
-      ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 720) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                VerticalSpacings.xxl,
+                Expanded(
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                        Assets.logoPrimary,
+                        width: 70,
+                        color: kPrimaryColor,
+                      ),
+                      VerticalSpacings.xs,
+                      Text(
+                        kAppName,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                    ],
+                  ),
+                ),
+                VerticalSpacings.xl,
+                Expanded(
+                  child: SvgPicture.asset(
+                    Assets.imagesReading,
+                    width: 300,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: Spacings.sm, horizontal: Spacings.md),
+                    child: Text(
+                        'Access and read your school documents and files in one place',
+                        textScaleFactor: 1.2,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                ),
+                VerticalSpacings.xxl,
+                ElevatedButton.icon(
+                    onPressed: () {
+                      context.pushNamed(Routes.selectSchool);
+                      print(GoRouter.of(context).location);
+                    },
+                    icon: const Icon(Icons.send),
+                    label: const Text('Get Started')),
+                VerticalSpacings.xxl,
+              ],
+            );
+          }
+          else {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Row(
+                    children:  [
+                      HorizontalSpacings.sm,
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: SvgPicture.asset(
+                                Assets.imagesReading,
+                                width: 300,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: Spacings.lg),
+                              child: Text(
+                                  'Access and read your school documents and files in one place',
+                                  textScaleFactor: 1.2,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodyMedium),
+                            ),
+                            VerticalSpacings.xl,
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                SvgPicture.asset(
+                                  Assets.logoPrimary,
+                                  width: 70,
+                                  color: kPrimaryColor,
+                                ),
+                                VerticalSpacings.xs,
+                                Text(
+                                  kAppName,
+                                  style: Theme.of(context).textTheme.headlineLarge,
+                                ),
+                              ],
+                            ),
+                            VerticalSpacings.lg,
+                            ElevatedButton.icon(
+                                onPressed: () {
+                                  context.pushNamed(Routes.selectSchool);
+                                  print(GoRouter.of(context).location);
+                                },
+                                icon: const Icon(Icons.send),
+                                label: const Text('Get Started')),
+                            VerticalSpacings.lg,
+                          ],
+                        ),
+                      ),
+                      HorizontalSpacings.sm,
+                    ],
+                  ),
+                ),
+              ],
+            );
+          }
+        },
+      )
     );
   }
 }

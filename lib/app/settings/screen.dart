@@ -11,6 +11,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool isDarkTheme = false;
+  bool isDownloadOnly = false;
   String school = 'College Of Technology';
   String schAbb = 'Coltech';
   String department = 'Computer Engineering';
@@ -23,7 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(GoRouter.of(context).location, style: TextStyle(fontSize: 10),),
+        title: const Text(kAppName),
         centerTitle: true,
       ),
       body: Padding(
@@ -31,16 +32,6 @@ class _SettingsPageState extends State<SettingsPage> {
             vertical: Spacings.sm, horizontal: Spacings.xs),
         child: ListView(
           children: [
-            Card(
-              child: SwitchListTile(
-                title: const Text('Dark Theme'),
-                  value: isDarkTheme,
-                  onChanged: (value) {
-                    setState(() {
-                      isDarkTheme = value;
-                    });
-                  }),
-            ),
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(Spacings.sm),
@@ -80,7 +71,27 @@ class _SettingsPageState extends State<SettingsPage> {
                   ],
                 )
               ),
-            )
+            ),
+            Card(
+              child: SwitchListTile(
+                  title: const Text('Dark Theme'),
+                  value: isDarkTheme,
+                  onChanged: (value) {
+                    setState(() {
+                      isDarkTheme = value;
+                    });
+                  }),
+            ),
+            Card(
+              child: SwitchListTile(
+                  title: const Text('Download only over WiFi'),
+                  value: isDownloadOnly,
+                  onChanged: (value) {
+                    setState(() {
+                      isDownloadOnly = value;
+                    });
+                  }),
+            ),
           ],
         ),
       ),

@@ -16,11 +16,11 @@ class Themes {
         )),
         bodySmall: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
-          fontSize: 13,
+          fontSize: 10,
         )),
         bodyMedium: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
-          fontSize: 10,
+          fontSize: 13,
         )),
         headlineLarge: GoogleFonts.rufina(
             textStyle: const TextStyle(
@@ -43,7 +43,7 @@ class Themes {
         titleTextStyle: GoogleFonts.rufina(
             textStyle: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 25,
+          fontSize: 20,
           color: Colors.white,
         )),
       ));

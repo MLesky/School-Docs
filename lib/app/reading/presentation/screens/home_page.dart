@@ -10,34 +10,65 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(kAppName),
-        leading:
-            Padding(
+    return DefaultTabController(
+        initialIndex: 1,
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text(kAppName),
+            leading: Padding(
               padding: const EdgeInsets.fromLTRB(Spacings.sm, 0, 0, 0),
-              child: SvgPicture.asset(Assets.logoWhite, color: Colors.white,),
+              child: SvgPicture.asset(
+                Assets.logoWhite,
+                color: Colors.white,
+              ),
             ),
-        leadingWidth: 50,
-        actions: [
-          IconButton(
-            onPressed: () {
-              print('You clicked the refresh button');
-            },
-            icon: const Icon(Icons.refresh),
+            leadingWidth: 50,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  print('You clicked the refresh button');
+                },
+                icon: const Icon(Icons.refresh),
+              ),
+              IconButton(
+                onPressed: () {
+                  context.goNamed(Routes.settings);
+                },
+                icon: const Icon(Icons.settings_outlined),
+              ),
+            ],
+            bottom: const TabBar(
+              tabs: [
+                Text('1st Sem'),
+                Text('2st Sem'),
+                Text('3st Sem'),
+                Text('4st Sem'),
+              ],
+            ),
           ),
-          IconButton(
-            onPressed: () {
-              context.goNamed(Routes.settings);
-            },
-            icon: const Icon(Icons.settings_outlined),
-          ),
-        ],
-      ),
-      body: SelectionListScreen(
-        listItems: [],
-        path: '', paramType: '',
-      ),
-    );
+          body: const TabBarView(children: [
+            SelectionListScreen(
+              listItems: [],
+              path: '',
+              paramType: '',
+            ),
+            SelectionListScreen(
+              listItems: [],
+              path: '',
+              paramType: '',
+            ),
+            SelectionListScreen(
+              listItems: [],
+              path: '',
+              paramType: '',
+            ),
+            SelectionListScreen(
+              listItems: [],
+              path: '',
+              paramType: '',
+            ),
+          ])
+        ));
   }
 }

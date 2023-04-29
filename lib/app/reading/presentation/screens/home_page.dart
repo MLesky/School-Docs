@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:school_docs/app/reading/data/courses.dart';
 import 'package:school_docs/utils/utils.dart';
 
 // TODO: SVG icon color
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
         initialIndex: 1,
-        length: 4,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             title: const Text(kAppName),
@@ -40,35 +41,41 @@ class HomePage extends StatelessWidget {
             ],
             bottom: const TabBar(
               tabs: [
-                Text('1st Sem'),
-                Text('2st Sem'),
-                Text('3st Sem'),
-                Text('4st Sem'),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('1st Sem'),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('2st Sem'),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('3st Sem'),
+                ),
               ],
             ),
           ),
-          body: const TabBarView(children: [
-            SelectionListScreen(
-              listItems: [],
-              path: '',
-              paramType: '',
-            ),
-            SelectionListScreen(
-              listItems: [],
-              path: '',
-              paramType: '',
-            ),
-            SelectionListScreen(
-              listItems: [],
-              path: '',
-              paramType: '',
-            ),
-            SelectionListScreen(
-              listItems: [],
-              path: '',
-              paramType: '',
-            ),
-          ])
+          body: Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacings.sm, horizontal: Spacings.xs),
+            child: TabBarView(children: [
+              const SelectionListScreen(
+                listItems: [],
+                path: '',
+                paramType: '',
+              ),
+              SelectionListScreen(
+                listItems: listOfColtechCenYear2Sem1Courses,
+                path: Routes.documents,
+                paramType: 'course',
+              ),
+              const SelectionListScreen(
+                listItems: [],
+                path: '',
+                paramType: '',
+              ),
+            ]),
+          )
         ));
   }
 }

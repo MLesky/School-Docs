@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:school_docs/app/reading/reading.dart';
 import 'package:school_docs/utils/utils.dart';
 
 class DocumentPage extends StatefulWidget {
-  const DocumentPage({Key? key}) : super(key: key);
+  const DocumentPage({super.key, required this.course});
+  final String course;
 
   @override
   State<DocumentPage> createState() => _DocumentPageState();
@@ -16,15 +17,15 @@ class _DocumentPageState extends State<DocumentPage> {
 
   @override
   Widget build(BuildContext context) {
+    late List<Document> listOfDocuments;
+    try {
+      listOfDocuments = listOfColtechCenYear2Sem1Courses.firstWhere((element) => element.name.toLowerCase() == widget.course).documents;
+    } catch (err) {
+      listOfDocuments = [];
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text(kAppName),
-        leading:
-        Padding(
-          padding: const EdgeInsets.fromLTRB(Spacings.sm, 0, 0, 0),
-          child: SvgPicture.asset(Assets.logoWhite, color: Colors.white,),
-        ),
-        leadingWidth: 50,
         actions: [
           IconButton(
             onPressed: () {
@@ -49,8 +50,10 @@ class _DocumentPageState extends State<DocumentPage> {
         ],
       ),
       body: SelectionListScreen(
-        listItems: [],
-        path: '', paramType: '',
+        listItems: listOfDocuments,
+        path: '',
+        paramType: '',
+        useListCardItem: false,
       ),
     );
   }

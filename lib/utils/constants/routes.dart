@@ -17,7 +17,7 @@ class Routes {
 
 // TODO: redirect on error route
 
-GoRouter routes = GoRouter(initialLocation: '/welcome/select_school', routes: [
+GoRouter routes = GoRouter(initialLocation: '/welcome', routes: [
   GoRoute(
       path: Routes.welcome,
       builder: ((context, state) => const WelcomeScreen()),
@@ -45,9 +45,9 @@ GoRouter routes = GoRouter(initialLocation: '/welcome/select_school', routes: [
       builder: (context, state) => const HomePage(),
       routes: [
         GoRoute(
-            path: 'documents',
+            path: 'documents/:course',
             name: Routes.documents,
-            builder: (context, state) => const DocumentPage(),
+            builder: (context, state) => DocumentPage(course: state.params['course']!,),
             routes: [
               GoRoute(
                 path: 'reading',

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:school_docs/utils/utils.dart';
 
 // TODO: implement display for no items found
@@ -11,11 +12,13 @@ class SelectionListScreen extends StatelessWidget {
       required this.listItems,
       required this.path,
       this.params = const {},
-      required this.paramType});
+      required this.paramType,
+      this.useListCardItem = true});
 
   final List listItems;
   final String path;
   final String paramType;
+  final bool useListCardItem;
   final Map<String, String> params;
 
   @override
@@ -55,13 +58,23 @@ class SelectionListScreen extends StatelessWidget {
             return ListView.builder(
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
-                  return ListCardItem(
-                    params: params,
-                    path: path,
-                    titleText: snapshot.data![index].name,
-                    subTitleText: snapshot.data![index]?.abbreviation ?? 'bn',
-                    paramType: paramType,
-                  );
+                  if(useListCardItem) {
+                    return ListCardItem(
+                      params: params,
+                      path: path,
+                      titleText: snapshot.data![index].name,
+                      subTitleText: snapshot.data![index]?.abbreviation ?? 'bn',
+                      paramType: paramType,
+                    );
+                  } else {
+                    return ListBookCardItem(
+                      params: params,
+                      path: path,
+                      titleText: snapshot.data![index].title,
+                      subTitleText: snapshot.data![index]?.lecturersName ?? 'bn',
+                      paramType: paramType,
+                    );
+                  }
                 });
           }
         });

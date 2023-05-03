@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -73,18 +75,18 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             Card(
-              child: SwitchListTile(
-                  title: const Text('Dark Theme'),
-                  value: isDarkTheme,
-                  onChanged: (value) {
-                    setState(() {
-                      isDarkTheme = value;
-                    });
-                  }),
+              child: Consumer<ThemeProvider>(
+                builder: (context, themeProvider, child) => SwitchListTile(
+                  activeColor: Theme.of(context).focusColor,
+                    title: const Text('Dark Theme'),
+                    value: themeProvider.isDarkMode,
+                    onChanged: (value) => themeProvider.swapTheme()),
+              ),
             ),
             Card(
               child: SwitchListTile(
                   title: const Text('Download only over WiFi'),
+                  activeColor: Theme.of(context).focusColor,
                   value: isDownloadOnly,
                   onChanged: (value) {
                     setState(() {

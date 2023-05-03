@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:school_docs/utils/utils.dart';
 
 // TODO: implement display for no items found
@@ -29,8 +28,8 @@ class SelectionListScreen extends StatelessWidget {
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
-                child: SpinKitRing(
-              color: Theme.of(context).primaryColor,
+                child: SpinKitFadingFour(
+              color: Theme.of(context).dividerColor,
             ));
           } else if (snapshot.data!.isEmpty) {
             return Center(

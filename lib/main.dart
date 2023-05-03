@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      ChangeNotifierProvider(
+          create: (BuildContext context) => ThemeProvider(), 
+          child: const MyApp(),
+      )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,11 +19,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: kAppName,
-      theme: Themes.lightTheme,
-      routerConfig: routes,
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: kAppName,
+        theme: themeProvider.themeData,
+        routerConfig: routes,
+      ),
     );
   }
 }

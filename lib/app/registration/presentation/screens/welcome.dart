@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
                       SvgPicture.asset(
                         Assets.logoPrimary,
                         width: 70,
-                        color: kPrimaryColor,
+                        color: Theme.of(context).dividerColor,
                       ),
                       VerticalSpacings.xs,
                       Text(
@@ -101,7 +101,7 @@ class WelcomeScreen extends StatelessWidget {
                                 SvgPicture.asset(
                                   Assets.logoPrimary,
                                   width: 70,
-                                  color: kPrimaryColor,
+                                  color: Theme.of(context).dividerColor,
                                 ),
                                 VerticalSpacings.xs,
                                 Text(

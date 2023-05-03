@@ -38,7 +38,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
             onChanged: changeYear,
             title: const Text('Year 1'),
             selected: selectedYear == 1,
-            selectedTileColor: Colors.indigo[100],
+            selectedTileColor: Theme.of(context).unselectedWidgetColor,
+            activeColor: Theme.of(context).focusColor,
           )),
           Card(
               child: RadioListTile(
@@ -47,7 +48,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
                 onChanged: changeYear,
                 title: const Text('Year 2'),
                 selected: selectedYear == 2,
-                selectedTileColor: Colors.indigo[100],
+                selectedTileColor: Theme.of(context).unselectedWidgetColor,
+                activeColor: Theme.of(context).focusColor,
               )),
           Card(
               child: RadioListTile(
@@ -56,7 +58,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
                 onChanged: changeYear,
                 title: const Text('Year 3'),
                 selected: selectedYear == 3,
-                selectedTileColor: Colors.indigo[100],
+                selectedTileColor: Theme.of(context).unselectedWidgetColor,
+                activeColor: Theme.of(context).focusColor,
               )),
           Card(
               child: RadioListTile(
@@ -65,7 +68,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
                 onChanged: changeYear,
                 title: const Text('Year 4'),
                 selected: selectedYear == 4,
-                selectedTileColor: Colors.indigo[100],
+                selectedTileColor: Theme.of(context).unselectedWidgetColor,
+                activeColor: Theme.of(context).focusColor,
               )),
           Card(
               child: RadioListTile(
@@ -74,7 +78,8 @@ class _SelectYearPageState extends State<SelectYearPage> {
                 onChanged: changeYear,
                 title: const Text('Year 5'),
                 selected: selectedYear == 5,
-                selectedTileColor: Colors.indigo[100],
+                selectedTileColor: Theme.of(context).unselectedWidgetColor,
+                activeColor: Theme.of(context).focusColor,
               )),
           VerticalSpacings.xxl,
           Row(

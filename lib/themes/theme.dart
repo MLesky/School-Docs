@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:school_docs/utils/utils.dart';
+export 'package:school_docs/themes/theme_provider.dart';
 
 // TODO: Implement light and dark themes
 /// TODO: Implement theme Provider
@@ -8,7 +9,10 @@ import 'package:school_docs/utils/utils.dart';
 class Themes {
   static ThemeData lightTheme = ThemeData(
       primaryColor: kPrimaryColor,
+      unselectedWidgetColor: Colors.black12,
       primarySwatch: kPrimarySwatch,
+      dividerColor: kPrimaryColor,
+      focusColor: kPrimaryColor,
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
@@ -49,6 +53,12 @@ class Themes {
       ));
   static ThemeData darkTheme = ThemeData.dark().copyWith(
       primaryColor: kPrimaryColor,
+      dividerColor: Colors.white,
+      unselectedWidgetColor: Colors.white30,
+      focusColor: kSecondaryColor,
+      buttonTheme: const ButtonThemeData(
+        buttonColor: kPrimaryColor,
+      ),
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
@@ -57,6 +67,7 @@ class Themes {
         bodySmall: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
               fontSize: 10,
+              color: kSecondaryColor,
             )),
         bodyMedium: GoogleFonts.robotoSlab(
             textStyle: const TextStyle(
@@ -66,15 +77,15 @@ class Themes {
             textStyle: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
-              color: kPrimaryColor,
+              color: Colors.white,
             )),
         titleMedium: GoogleFonts.ledger(
             textStyle: const TextStyle(
-              color: kPrimaryColor,
+              color: Colors.white,
             )),
         titleLarge: GoogleFonts.ledger(
             textStyle: const TextStyle(
-              color: Colors.black26,
+              color: Colors.white70,
               fontSize: 20,
             )),
       ),

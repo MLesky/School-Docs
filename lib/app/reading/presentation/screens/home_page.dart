@@ -39,8 +39,9 @@ class HomePage extends StatelessWidget {
                 icon: const Icon(Icons.settings_outlined),
               ),
             ],
-            bottom: const TabBar(
-              tabs: [
+            bottom: TabBar(
+              indicatorColor: Theme.of(context).focusColor,
+              tabs: const [
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text('1st Sem'),

@@ -47,4 +47,44 @@ class Themes {
           color: Colors.white,
         )),
       ));
+  static ThemeData darkTheme = ThemeData.dark().copyWith(
+      primaryColor: kPrimaryColor,
+      textTheme: TextTheme(
+        bodyLarge: GoogleFonts.robotoSlab(
+            textStyle: const TextStyle(
+              fontSize: 15,
+            )),
+        bodySmall: GoogleFonts.robotoSlab(
+            textStyle: const TextStyle(
+              fontSize: 10,
+            )),
+        bodyMedium: GoogleFonts.robotoSlab(
+            textStyle: const TextStyle(
+              fontSize: 13,
+            )),
+        headlineLarge: GoogleFonts.rufina(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              color: kPrimaryColor,
+            )),
+        titleMedium: GoogleFonts.ledger(
+            textStyle: const TextStyle(
+              color: kPrimaryColor,
+            )),
+        titleLarge: GoogleFonts.ledger(
+            textStyle: const TextStyle(
+              color: Colors.black26,
+              fontSize: 20,
+            )),
+      ),
+
+      appBarTheme: AppBarTheme(
+        titleTextStyle: GoogleFonts.rufina(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.white,
+            )),
+      ));
 }

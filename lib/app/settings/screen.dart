@@ -1,29 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  bool isDarkTheme = false;
-  bool isDownloadOnly = false;
-  String school = 'College Of Technology';
-  String schAbb = 'Coltech';
-  String department = 'Computer Engineering';
-  String depAbb = 'CEN';
-  String option = 'Software Engineering';
-  String optAbb = 'SWE';
-  int year = 2;
 
   @override
   Widget build(BuildContext context) {
+    var student = context.watch<StudentProvider>();
     return Scaffold(
       appBar: AppBar(
         title: const Text(kAppName),
@@ -45,25 +33,25 @@ class _SettingsPageState extends State<SettingsPage> {
                         TableRow(
                           children: [
                             TableCell(child: Text('School', style: Theme.of(context).textTheme.titleSmall,),),
-                            TableCell(child: Text('$school ($schAbb)', style: Theme.of(context).textTheme.titleSmall,),),
+                            TableCell(child: Text(student.school, style: Theme.of(context).textTheme.titleSmall,),),
                           ],
                         ),
                         TableRow(
                             children: [
                               TableCell(child: Text('Department', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('$department ($depAbb)', style: Theme.of(context).textTheme.titleSmall,),),
+                              TableCell(child: Text(student.department, style: Theme.of(context).textTheme.titleSmall,),),
                             ]
                         ),
                         TableRow(
                             children: [
                               TableCell(child: Text('Option', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('$option ($optAbb)', style: Theme.of(context).textTheme.titleSmall,),),
+                              TableCell(child: Text(student.option, style: Theme.of(context).textTheme.titleSmall,),),
                             ]
                         ),
                         TableRow(
                             children: [
                               TableCell(child: Text('Year', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('Year $year', style: Theme.of(context).textTheme.titleSmall,),),
+                              TableCell(child: Text("${student.year}", style: Theme.of(context).textTheme.titleSmall,),),
                             ]
                         ),
                       ],
@@ -87,11 +75,9 @@ class _SettingsPageState extends State<SettingsPage> {
               child: SwitchListTile(
                   title: const Text('Download only over WiFi'),
                   activeColor: Theme.of(context).focusColor,
-                  value: isDownloadOnly,
+                  value: false,
                   onChanged: (value) {
-                    setState(() {
-                      isDownloadOnly = value;
-                    });
+
                   }),
             ),
           ],

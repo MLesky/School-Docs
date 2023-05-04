@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:school_docs/app/reading/data/courses.dart';
+import 'package:school_docs/app/reading/reading.dart';
 import 'package:school_docs/utils/utils.dart';
 
 // TODO: SVG icon color
@@ -11,8 +11,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+ //   redirectIfNotRegistered(context);
     return DefaultTabController(
-        initialIndex: 1,
+        initialIndex: 0,
         length: 3,
         child: Scaffold(
           appBar: AppBar(

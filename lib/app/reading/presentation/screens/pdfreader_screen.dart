@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:school_docs/utils/constants/constants.dart';
+import 'package:school_docs/utils/utils.dart';
 
 class PdfReaderScreen extends StatelessWidget {
   const PdfReaderScreen({Key? key}) : super(key: key);

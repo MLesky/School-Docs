@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
 void main() {
   runApp(
+      MultiProvider(
+    providers: [
+      ListenableProvider(create: (BuildContext context) => StudentProvider()),
       ChangeNotifierProvider(
-          create: (BuildContext context) => ThemeProvider(), 
-          child: const MyApp(),
-      )
-  );
+        create: (BuildContext context) => ThemeProvider(),
+      ),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: kAppName,
         theme: themeProvider.themeData,
-        routerConfig: routes,
+        routerConfig: getRoutes(context),
       ),
     );
   }

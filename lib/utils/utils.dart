@@ -5,3 +5,4 @@ export 'package:school_docs/utils/constants/routes.dart';
 export 'package:school_docs/utils/widgets/list_item.dart';
 export 'package:school_docs/utils/widgets/list_image_item.dart';
 export 'package:school_docs/utils/widgets/selection_list_builder.dart';
+export 'package:school_docs/utils/methods/methods.dart';

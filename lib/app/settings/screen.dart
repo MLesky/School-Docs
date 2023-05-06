@@ -5,8 +5,9 @@ import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
+// TODO: fix resetting to initial route on hot reload and swapping the theme
 class SettingsPage extends StatelessWidget {
-  SettingsPage({Key? key}) : super(key: key);
+  SettingsPage({super.key});
 
   bool isDownload = false;
   @override
@@ -39,7 +40,6 @@ class SettingsPage extends StatelessWidget {
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ),
-
                               Expanded(
                                 flex: 2,
                                 child: Text(
@@ -63,7 +63,6 @@ class SettingsPage extends StatelessWidget {
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ),
-
                               Expanded(
                                 flex: 2,
                                 child: Text(
@@ -87,7 +86,6 @@ class SettingsPage extends StatelessWidget {
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ),
-
                               Expanded(
                                 flex: 2,
                                 child: Text(
@@ -111,7 +109,6 @@ class SettingsPage extends StatelessWidget {
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ),
-
                               Expanded(
                                 flex: 2,
                                 child: Text(
@@ -153,6 +150,31 @@ class SettingsPage extends StatelessWidget {
                     }),
               ),
             ),
+            Card(
+              child: ListTile(
+                  title: Text('About School Docs'),
+                  onTap: () {
+                    showAboutDialog(
+                      context: context,
+                      applicationIcon: Image.asset(
+                        Assets.logoIconPrimary,
+                        width: 50,
+                        height: 50,
+                      ),
+                      applicationName: kAppName,
+                      useRootNavigator: false,
+                      applicationVersion: '1.0',
+                      children: [
+                        const Text(
+                          'Access and read your school docs in one place\n',
+                        ),
+                        const Text(
+                            '- Mbah Lesky\n'
+                            '- Add your name'),
+                      ],
+                    );
+                  }),
+            )
           ],
         ),
       ),

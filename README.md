@@ -27,3 +27,5 @@ Get changes
     flutter pull origin main
 
 [Figma Prototype]('https://www.figma.com/proto/FADLwPUjddQtKD36Xh3PQU/School-Docs?page-id=0%3A1&node-id=64-1615&viewport=-219%2C420%2C0.32&scaling=scale-down&starting-point-node-id=1%3A2&show-proto-sidebar=1')
+
+  TODO: fix resetting to initial route on hot reload and swapping the theme

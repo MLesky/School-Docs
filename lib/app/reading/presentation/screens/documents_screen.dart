@@ -49,11 +49,11 @@ class _DocumentPageState extends State<DocumentPage> {
           ),
         ],
       ),
-      body: SelectionListScreen(
+      body: SelectionGridScreen(
         listItems: listOfDocuments,
         path: '',
         paramType: '',
-        useListCardItem: false,
+      //  useNormalCardItem: false,
       ),
     );
   }

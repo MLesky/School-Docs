@@ -3,14 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(
       MultiProvider(
     providers: [
       ListenableProvider(create: (BuildContext context) => StudentProvider()),
       ChangeNotifierProvider(
-        create: (BuildContext context) => ThemeProvider(),
+        create: (BuildContext context) => ThemeProvider(isDarkMode: prefs.getBool('isDarkMode') ?? false),
       ),
     ],
     child: const MyApp(),

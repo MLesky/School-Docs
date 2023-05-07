@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 const String kAppName = 'School Docs';
-const String kHexColorString = "#210062";
-const int kHexColorValue = 0xFF210062;
-const Color kPrimaryColor = Color(kHexColorValue);
-const kPrimarySwatch = MaterialColor(kHexColorValue, <int, Color>{
+const kHexPrimaryColorValue = 0xFF210062;
+const Color kPrimaryColor = Color(0xFF210062);
+const Color kSecondaryColor = Color(0xFFF0FC93);
+const kPrimarySwatch = MaterialColor(kHexPrimaryColorValue, <int, Color>{
   50 : kPrimaryColor,
   100 : kPrimaryColor,
   200 : kPrimaryColor,

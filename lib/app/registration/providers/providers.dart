@@ -1,0 +1,1 @@
+export 'package:school_docs/app/registration/providers/student_provider.dart';

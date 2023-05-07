@@ -10,5 +10,6 @@ class Assets {
   static const String logoPrimaryBgFilled = 'assets/logo/primary_bg_filled.svg';
   static const String logoWhite = 'assets/logo/white.svg';
   static const String logoWhiteBgFilled = 'assets/logo/white_bg_filled.svg';
+  static const String bookCover = 'assets/images/book_cover.png';
 
 }

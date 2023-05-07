@@ -14,6 +14,7 @@ class SelectSchoolPage extends StatelessWidget {
           listItems: listOfSchools,
           path: Routes.selectDepartment,
           paramType: 'school',
-        ));
+        ),
+    );
   }
 }

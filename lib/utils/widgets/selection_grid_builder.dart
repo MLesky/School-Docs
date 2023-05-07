@@ -3,21 +3,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:school_docs/utils/utils.dart';
 
-// TODO: implement display for no items found
-
-class SelectionListScreen extends StatelessWidget {
-  const SelectionListScreen(
-      {super.key,
-      required this.listItems,
-      required this.path,
-      this.params = const {},
-      required this.paramType,
-      this.useNormalCardItem = true});
+class SelectionGridScreen extends StatelessWidget {
+  const SelectionGridScreen({
+    super.key,
+    required this.listItems,
+    required this.path,
+    this.params = const {},
+    required this.paramType,
+  });
 
   final List listItems;
   final String path;
   final String paramType;
-  final bool useNormalCardItem;
   final Map<String, String> params;
 
   @override
@@ -54,27 +51,28 @@ class SelectionListScreen extends StatelessWidget {
               ),
             );
           } else {
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, index) {
-                  if(useNormalCardItem) {
-                    return ListCardItem(
-                      params: params,
-                      path: path,
-                      titleText: snapshot.data![index].name,
-                      subTitleText: snapshot.data![index]?.abbreviation ?? 'bn',
-                      paramType: paramType,
-                    );
-                  } else {
-                    return ListBookCardItem(
-                      params: params,
-                      path: path,
-                      titleText: snapshot.data![index].title,
-                      subTitleText: snapshot.data![index]?.lecturersName ?? 'bn',
-                      paramType: paramType,
-                    );
-                  }
-                });
+            return ListView(
+              children: [
+                Center(
+                  child: Wrap(
+                      alignment: WrapAlignment.start,
+                      spacing: Spacings.xs,
+                      runSpacing: Spacings.xs,
+                      children: [
+                    ...snapshot.data!
+                        .map((item) => GridBookCardItem(
+                              params: params,
+                              path: path,
+                              titleText: item.title,
+                              subTitleText: item.lecturersName ?? 'bn',
+                              paramType: paramType,
+                            ))
+                        .toList(),
+                        VerticalSpacings.md,
+                  ]),
+                ),
+              ],
+            );
           }
         });
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:school_docs/app/registration/data/data.dart';
+import 'package:school_docs/app/registration/models/department.dart';
 import 'package:school_docs/app/registration/presentation/presentation.dart';
 import 'package:school_docs/utils/utils.dart';
 
@@ -9,6 +10,12 @@ class SelectDepartmentPage extends StatelessWidget {
   final String school;
   @override
   Widget build(BuildContext context) {
+    late List<Department> listOfDepartments;
+    try {
+      listOfDepartments = listOfSchools.firstWhere((element) => element.name.toLowerCase() == school).departments;
+    } catch (err) {
+      listOfDepartments = [];
+    }
     return ScaffoldForSelectionList(
         title: 'Select Department',
         child: SelectionListScreen(

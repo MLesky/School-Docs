@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:school_docs/app/registration/providers/providers.dart';
+import 'package:school_docs/themes/theme.dart';
 import 'package:school_docs/utils/utils.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+// TODO: fix resetting to initial route on hot reload and swapping the theme
+class SettingsPage extends StatelessWidget {
+  SettingsPage({super.key});
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  bool isDarkTheme = false;
-  String school = 'College Of Technology';
-  String schAbb = 'Coltech';
-  String department = 'Computer Engineering';
-  String depAbb = 'CEN';
-  String option = 'Software Engineering';
-  String optAbb = 'SWE';
-  int year = 2;
-
+  bool isDownload = false;
   @override
   Widget build(BuildContext context) {
+    var student = context.watch<StudentProvider>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text(kAppName),
         centerTitle: true,
       ),
       body: Padding(
@@ -32,54 +24,156 @@ class _SettingsPageState extends State<SettingsPage> {
         child: ListView(
           children: [
             Card(
-              child: SwitchListTile(
-                title: const Text('Dark Theme'),
-                  value: isDarkTheme,
-                  onChanged: (value) {
-                    setState(() {
-                      isDarkTheme = value;
-                    });
-                  }),
+              child: Padding(
+                  padding: const EdgeInsets.all(Spacings.sm),
+                  child: Column(
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(Spacings.sm),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'SCHOOL',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  student.school,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(Spacings.sm),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'DEPARTMENT',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  student.department,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(Spacings.sm),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'OPTION',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  student.option,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(Spacings.sm),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'LEVEL',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  'Year ${student.year}',
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      VerticalSpacings.sm,
+                      TextButton.icon(
+                          onPressed: () {
+                            context.pushNamed(Routes.selectSchool);
+                          },
+                          icon: const Icon(Icons.edit),
+                          label: const Text('Change')),
+                    ],
+                  )),
             ),
             Card(
-              child: Padding(
-                padding: const EdgeInsets.all(Spacings.sm),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Table(
-                      children: [
-                        TableRow(
-                          children: [
-                            TableCell(child: Text('School', style: Theme.of(context).textTheme.titleSmall,),),
-                            TableCell(child: Text('$school ($schAbb)', style: Theme.of(context).textTheme.titleSmall,),),
-                          ],
-                        ),
-                        TableRow(
-                            children: [
-                              TableCell(child: Text('Department', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('$department ($depAbb)', style: Theme.of(context).textTheme.titleSmall,),),
-                            ]
-                        ),
-                        TableRow(
-                            children: [
-                              TableCell(child: Text('Option', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('$option ($optAbb)', style: Theme.of(context).textTheme.titleSmall,),),
-                            ]
-                        ),
-                        TableRow(
-                            children: [
-                              TableCell(child: Text('Year', style: Theme.of(context).textTheme.titleSmall,),),
-                              TableCell(child: Text('Year $year', style: Theme.of(context).textTheme.titleSmall,),),
-                            ]
-                        ),
-                      ],
-                    ),
-                    VerticalSpacings.md,
-                    TextButton.icon(onPressed: (){context.pushNamed(Routes.selectSchool);}, icon: const Icon(Icons.edit), label: const Text('Change')),
-                  ],
-                )
+              child: Consumer<ThemeProvider>(
+                builder: (context, themeProvider, child) => SwitchListTile(
+                    activeColor: Theme.of(context).focusColor,
+                    title: const Text('Dark Theme'),
+                    value: themeProvider.isDarkMode,
+                    onChanged: (value) => themeProvider.swapTheme()),
               ),
+            ),
+            Card(
+              child: StatefulBuilder(
+                builder: (context, setState) => SwitchListTile(
+                    title: const Text('Download only over WiFi'),
+                    activeColor: Theme.of(context).focusColor,
+                    value: isDownload,
+                    onChanged: (value) {
+                      setState(() => isDownload = value);
+                    }),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  title: Text('About School Docs'),
+                  onTap: () {
+                    showAboutDialog(
+                      context: context,
+                      applicationIcon: Image.asset(
+                        Assets.logoIconPrimary,
+                        width: 50,
+                        height: 50,
+                      ),
+                      applicationName: kAppName,
+                      useRootNavigator: false,
+                      applicationVersion: '1.0',
+                      children: [
+                        const Text(
+                          'Access and read your school docs in one place\n',
+                        ),
+                        const Text(
+                            '- Mbah Lesky\n'
+                            '- Add your name'),
+                      ],
+                    );
+                  }),
             )
           ],
         ),

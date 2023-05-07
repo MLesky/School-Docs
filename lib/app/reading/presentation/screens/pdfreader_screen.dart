@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_docs/utils/utils.dart';
 
 class PdfReaderScreen extends StatelessWidget {
   const PdfReaderScreen({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class PdfReaderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reading'),
+        title: const Text(kAppName),
       ),
       body: Container(),
     );

@@ -4,5 +4,7 @@ class Document {
   final String title;
   final String lecturersName;
   final String coverImagePath;
-  Document({this.id = '', required this.title, this.lecturersName = '', this.coverImagePath = ''});
+  final String pdfPath;
+
+  Document({this.pdfPath = '', this.id = '', required this.title, this.lecturersName = '', this.coverImagePath = ''});
 }

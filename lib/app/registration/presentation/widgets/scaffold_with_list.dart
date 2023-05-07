@@ -18,9 +18,8 @@ class ScaffoldForSelectionList extends StatelessWidget {
             context.pop();
           },
         ),
-        title: Text(
-            GoRouter.of(context).location, style: TextStyle(fontSize: 10),
-        ),
+        title: const Text(kAppName),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
@@ -30,10 +29,13 @@ class ScaffoldForSelectionList extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(
-            Spacings.sm, Spacings.md, Spacings.sm, Spacings.xxl),
-        child: child,
+      body: Scaffold(
+        appBar: AppBar(title: Text(title, style: Theme.of(context).textTheme.bodyLarge,), backgroundColor: Theme.of(context).cardColor, automaticallyImplyLeading: false, toolbarHeight: 40,),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(
+              Spacings.sm, Spacings.md, Spacings.sm, Spacings.sm),
+          child: child,
+        ),
       ),
     );
   }

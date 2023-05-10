@@ -80,11 +80,11 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text('2st Sem'),
+                              child: Text('2nd Sem'),
                             ),
                             Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Text('3st Sem'),
+                              child: Text('3rd Sem'),
                             ),
                           ],
                         ),

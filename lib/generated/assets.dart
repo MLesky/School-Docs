@@ -2,14 +2,19 @@
 class Assets {
   Assets._();
 
+  static const String imagesBookCover = 'assets/images/book_cover.png';
+  static const String imagesDgconNotes = 'assets/images/dgcon-notes.png';
   static const String imagesEmpty = 'assets/images/empty.svg';
   static const String imagesReading = 'assets/images/reading.svg';
+  static const String imagesTest = 'assets/images/test.jpg';
   static const String logoIconPrimary = 'assets/logo/icon_primary.png';
   static const String logoIconWhite = 'assets/logo/icon_white.png';
   static const String logoPrimary = 'assets/logo/primary.svg';
   static const String logoPrimaryBgFilled = 'assets/logo/primary_bg_filled.svg';
   static const String logoWhite = 'assets/logo/white.svg';
   static const String logoWhiteBgFilled = 'assets/logo/white_bg_filled.svg';
-  static const String bookCover = 'assets/images/book_cover.png';
+  // static const String pdfCENP 3203 data integrity and security = 'assets/pdf/CENP 3203 data integrity and security.pdf';
+  // static const String pdfDIGITAL CONTROL SYSTEMS NOTES 2023 = 'assets/pdf/DIGITAL CONTROL SYSTEMS -NOTES- 2023.pdf';
+  // static const String pdfDIGITAL CONTROL SYSTEMS TUTORIALS = 'assets/pdf/DIGITAL CONTROL SYSTEMS TUTORIALS.pdf';
 
 }

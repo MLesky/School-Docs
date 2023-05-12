@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:school_docs/app/reading/reading.dart';
+import 'package:school_docs/app/registration/data/data.dart';
+import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,6 +31,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     StudentProvider student = context.watch<StudentProvider>();
+     late List<Course> listOfSem2Course;
+     try {
+       listOfSem2Course = listOfSchools
+           .firstWhere((element) => element.name.toLowerCase() == student.school.toLowerCase())
+           .departments
+           .firstWhere((element) => element.name.toLowerCase() == student.department.toLowerCase())
+           .options.firstWhere((element) => element.name.toLowerCase() == student.option.toLowerCase())
+           .years.firstWhere((element) => element.yearInt == student.year)
+            .semesters.firstWhere((element) => element.semesterInt == 2).courses;
+     } catch (err) {
+       listOfSem2Course = [];
+     }
     return FutureBuilder<int>(
         future: _tabIndex,
         builder: (context, snapshot) {
@@ -98,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                             paramType: '',
                           ),
                           SelectionListScreen(
-                            listItems: listOfColtechCenYear2Sem1Courses,
+                            listItems: listOfSem2Course,
                             path: Routes.documents,
                             paramType: 'course',
                           ),

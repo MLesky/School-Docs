@@ -68,10 +68,11 @@ class SelectionListScreen extends StatelessWidget {
                   } else {
                     return ListBookCardItem(
                       params: params,
-                      path: path,
+                      bookPath: snapshot.data![index].pdfPath,
                       titleText: snapshot.data![index].title,
                       subTitleText: snapshot.data![index]?.lecturersName ?? 'bn',
                       paramType: paramType,
+                      image: snapshot.data![index].coverImagePath,
                     );
                   }
                 });

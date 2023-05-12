@@ -51,7 +51,7 @@ class SelectionGridScreen extends StatelessWidget {
               ),
             );
           } else {
-            return ListView(
+            return Wrap(
               children: [
                 Center(
                   child: Wrap(
@@ -62,10 +62,11 @@ class SelectionGridScreen extends StatelessWidget {
                     ...snapshot.data!
                         .map((item) => GridBookCardItem(
                               params: params,
-                              path: path,
+                              bookPath: item.pdfPath,
                               titleText: item.title,
                               subTitleText: item.lecturersName ?? 'bn',
                               paramType: paramType,
+                              image: item.coverImagePath,
                             ))
                         .toList(),
                         VerticalSpacings.md,

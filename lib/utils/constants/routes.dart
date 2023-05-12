@@ -54,9 +54,9 @@ GoRouter getRoutes(BuildContext context){
               builder: (context, state) => DocumentPage(course: state.params['course']!,),
               routes: [
                 GoRoute(
-                  path: 'reading',
+                  path: 'reading/:document/:docPath',
                   name: Routes.reading,
-                  builder: (context, state) => const PdfReaderScreen(),
+                  builder: (context, state) => PdfReaderScreen(document: state.params['document']!, docPath: state.params['docPath']!),
                 ),
               ]),
           GoRoute(

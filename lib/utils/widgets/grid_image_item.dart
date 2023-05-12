@@ -7,24 +7,26 @@ class GridBookCardItem extends StatelessWidget {
       {super.key,
       required this.titleText,
       required this.subTitleText,
-      required this.path,
+      required this.bookPath,
       required this.params,
-      required this.paramType});
+      required this.paramType,
+      required this.image});
   final String titleText;
   final String subTitleText;
-  final String path;
+  final String bookPath;
   final String paramType;
+  final String image;
   final Map<String, String> params;
 
   @override
   Widget build(BuildContext context) {
-    var tempParams = {...params, paramType: titleText.toLowerCase()};
+    var tempParams = {...params, 'docPath': bookPath, paramType: titleText.toLowerCase()};
 
-    return GestureDetector(
-      onTap: () {
+    return MaterialButton(
+      onPressed: () {
         print(GoRouter.of(context).location);
         print(tempParams);
-        context.pushNamed(path, params: tempParams);
+        context.pushNamed(Routes.reading, params: tempParams);
       },
       child: SizedBox(
         height: 300,
@@ -35,13 +37,21 @@ class GridBookCardItem extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                    Assets.bookCover,
+                    image,
                     height: 200,
                   ),
                   VerticalSpacings.xs,
-                  Text(titleText, overflow: TextOverflow.ellipsis, maxLines: 2, style: Theme.of(context).textTheme.bodyLarge,),
+                  Text(
+                    titleText,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   const Divider(),
-                  Text(subTitleText, style: Theme.of(context).textTheme.bodySmall,),
+                  Text(
+                    subTitleText,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                 ],
               )),
         ),

@@ -39,7 +39,7 @@ class _DocumentPageState extends State<DocumentPage> {
   Widget build(BuildContext context) {
     late List<Document> listOfDocuments;
     try {
-      listOfDocuments = listOfColtechCenYear2Sem1Courses.firstWhere((element) => element.name.toLowerCase() == widget.course).documents;
+      listOfDocuments = listOfColtechCenYear2Sem2Courses.firstWhere((element) => element.name.toLowerCase() == widget.course).documents;
     } catch (err) {
       listOfDocuments = [];
     }
@@ -82,13 +82,15 @@ class _DocumentPageState extends State<DocumentPage> {
               ? SelectionGridScreen(
             listItems: listOfDocuments,
             path: '',
-            paramType: '',
+            paramType: 'document',
+            params: {'course': widget.course},
           //  useNormalCardItem: false,
           )
             : SelectionListScreen(
             listItems: listOfDocuments,
             path: '',
-            paramType: '',
+            paramType: 'document',
+            params: {'course': widget.course},
             useNormalCardItem: false,
           ),
         );

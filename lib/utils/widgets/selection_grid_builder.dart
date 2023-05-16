@@ -10,17 +10,19 @@ class SelectionGridScreen extends StatelessWidget {
     required this.path,
     this.params = const {},
     required this.paramType,
+    this.seconds = 1,
   });
 
   final List listItems;
   final String path;
   final String paramType;
   final Map<String, String> params;
+  final int seconds;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Future.delayed(const Duration(seconds: 1))
+        future: Future.delayed(Duration(seconds: seconds))
             .then((schools) => listItems),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
@@ -52,28 +54,22 @@ class SelectionGridScreen extends StatelessWidget {
             );
           } else {
             return Wrap(
-              children: [
-                Center(
-                  child: Wrap(
-                      alignment: WrapAlignment.start,
-                      spacing: Spacings.xs,
-                      runSpacing: Spacings.xs,
-                      children: [
-                    ...snapshot.data!
-                        .map((item) => GridBookCardItem(
-                              params: params,
-                              bookPath: item.pdfPath,
-                              titleText: item.title,
-                              subTitleText: item.lecturersName ?? 'bn',
-                              paramType: paramType,
-                              image: item.coverImagePath,
-                            ))
-                        .toList(),
-                        VerticalSpacings.md,
-                  ]),
-                ),
-              ],
-            );
+                    alignment: WrapAlignment.start,
+                    spacing: Spacings.xs,
+                    runSpacing: Spacings.xs,
+                    children: [
+                  ...snapshot.data!
+                      .map((item) => GridBookCardItem(
+                            params: params,
+                            bookPath: item.pdfPath,
+                            titleText: item.title,
+                            subTitleText: item.lecturersName ?? 'bn',
+                            paramType: paramType,
+                            image: item.coverImagePath,
+                          ))
+                      .toList(),
+                      VerticalSpacings.md,
+                ]);
           }
         });
   }

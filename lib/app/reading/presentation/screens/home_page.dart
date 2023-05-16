@@ -117,6 +117,7 @@ class _HomePageState extends State<HomePage> {
                             listItems: listOfSem2Course,
                             path: Routes.documents,
                             paramType: 'course',
+                            seconds: 0,
                           ),
                           const SelectionListScreen(
                             listItems: [],

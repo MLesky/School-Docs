@@ -84,6 +84,7 @@ class _DocumentPageState extends State<DocumentPage> {
             path: '',
             paramType: 'document',
             params: {'course': widget.course},
+            seconds: 0,
           //  useNormalCardItem: false,
           )
             : SelectionListScreen(
@@ -92,6 +93,7 @@ class _DocumentPageState extends State<DocumentPage> {
             paramType: 'document',
             params: {'course': widget.course},
             useNormalCardItem: false,
+            seconds: 0,
           ),
         );
       }

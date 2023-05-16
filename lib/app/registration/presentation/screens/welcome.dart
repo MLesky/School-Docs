@@ -3,8 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:school_docs/utils/utils.dart';
 
-/// TODO: Make the [WelcomeScreen] responsive (add layout builder)
-/// TODO: Arrange color of [Logo]
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 

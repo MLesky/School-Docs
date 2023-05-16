@@ -24,7 +24,6 @@ class _DocumentPageState extends State<DocumentPage> {
 
     setState(() {
       _isGridView = pref.setBool('isGridView', isGridView).then((bool success) => isGridView);
-      print('Is grid view $isGridView');
     });
 
   }
@@ -62,7 +61,7 @@ class _DocumentPageState extends State<DocumentPage> {
             actions: [
               IconButton(
                 onPressed: () {
-                  print('You clicked the refresh button');
+                  setState(() {});
                 },
                 icon: const Icon(Icons.refresh),
               ),

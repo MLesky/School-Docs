@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:school_docs/utils/utils.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfReaderScreen extends StatefulWidget {
@@ -40,7 +36,6 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('Pdf reader opened: assets/${widget.docPath}');
     return Scaffold(
       appBar: AppBar(
         title: Text(

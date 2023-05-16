@@ -24,8 +24,6 @@ class GridBookCardItem extends StatelessWidget {
 
     return MaterialButton(
       onPressed: () {
-        print(GoRouter.of(context).location);
-        print(tempParams);
         context.pushNamed(Routes.reading, params: tempParams);
       },
       child: SizedBox(

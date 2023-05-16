@@ -62,7 +62,7 @@ GoRouter getRoutes(BuildContext context){
           GoRoute(
               path: 'settings',
               name: Routes.settings,
-              builder: (context, state) => SettingsPage()),
+              builder: (context, state) => const SettingsPage()),
         ])
   ]);
 }

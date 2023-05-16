@@ -4,7 +4,6 @@ import 'package:school_docs/app/registration/models/department.dart';
 import 'package:school_docs/app/registration/presentation/presentation.dart';
 import 'package:school_docs/utils/utils.dart';
 
-// TODO: add school property for go_router params
 class SelectDepartmentPage extends StatelessWidget {
   const SelectDepartmentPage({super.key, required this.school});
   final String school;

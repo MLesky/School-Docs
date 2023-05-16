@@ -5,8 +5,6 @@ import 'package:school_docs/app/registration/presentation/presentation.dart';
 import 'package:school_docs/app/registration/providers/providers.dart';
 import 'package:school_docs/utils/utils.dart';
 
-// TODO: add school property for go_router params
-/// TODO: change to [StatelessWidget] and add Provider for the Year
 class SelectYearPage extends StatefulWidget {
   const SelectYearPage({super.key, required this.school, required this.department, required this.option});
   final String school;
@@ -23,7 +21,6 @@ class _SelectYearPageState extends State<SelectYearPage> {
   void changeYear(value) {
     setState(() {
       selectedYear = value;
-      print('selected year is year - $value ($selectedYear)');
     });
   }
 
@@ -103,7 +100,6 @@ class _SelectYearPageState extends State<SelectYearPage> {
                         studentProvider.setOption = widget.option.toTitleCase();
                         studentProvider.setYear = selectedYear;
                         studentProvider.saveStudentInfo();
-                        print('Registered as ${widget.school} > %${widget.department} > ${widget.option} > year $selectedYear');
                         context.pushReplacementNamed(Routes.home);
                       }
                     },

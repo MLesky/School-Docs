@@ -21,8 +21,6 @@ class ListCardItem extends StatelessWidget {
         ),
         subtitle: Text(subTitleText),
         onTap: () {
-          print(GoRouter.of(context).location);
-          print(tempParams);
           context.pushNamed(path, params: tempParams);
         },
       ),

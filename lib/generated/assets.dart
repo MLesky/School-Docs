@@ -13,8 +13,8 @@ class Assets {
   static const String logoPrimaryBgFilled = 'assets/logo/primary_bg_filled.svg';
   static const String logoWhite = 'assets/logo/white.svg';
   static const String logoWhiteBgFilled = 'assets/logo/white_bg_filled.svg';
-  // static const String pdfCENP 3203 data integrity and security = 'assets/pdf/CENP 3203 data integrity and security.pdf';
-  // static const String pdfDIGITAL CONTROL SYSTEMS NOTES 2023 = 'assets/pdf/DIGITAL CONTROL SYSTEMS -NOTES- 2023.pdf';
-  // static const String pdfDIGITAL CONTROL SYSTEMS TUTORIALS = 'assets/pdf/DIGITAL CONTROL SYSTEMS TUTORIALS.pdf';
+  static const String pdfDIGITALCONTROLSYSTEMSNOTES2023 = 'assets/pdf/DIGITAL-CONTROL-SYSTEMS-NOTES-2023.pdf';
+  static const String pdfDIGITALCONTROLSYSTEMSTUTORIALS = 'assets/pdf/DIGITAL-CONTROL-SYSTEMS-TUTORIALS.pdf';
+  static const String pdfDataSecurityAndIntegrity = 'assets/pdf/data-security-and-integrity.pdf';
 
 }

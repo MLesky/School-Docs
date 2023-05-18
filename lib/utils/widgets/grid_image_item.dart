@@ -24,13 +24,11 @@ class GridBookCardItem extends StatelessWidget {
 
     return MaterialButton(
       onPressed: () {
-        print(GoRouter.of(context).location);
-        print(tempParams);
         context.pushNamed(Routes.reading, params: tempParams);
       },
       child: SizedBox(
-        height: 300,
-        width: 175,
+        height: 250,
+        width: 150,
         child: Card(
           child: Padding(
               padding: const EdgeInsets.all(Spacings.xs),
@@ -38,7 +36,7 @@ class GridBookCardItem extends StatelessWidget {
                 children: [
                   Image.asset(
                     image,
-                    height: 200,
+                    height: 150,
                   ),
                   VerticalSpacings.xs,
                   Text(

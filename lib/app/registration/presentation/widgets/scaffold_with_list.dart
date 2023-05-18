@@ -21,12 +21,13 @@ class ScaffoldForSelectionList extends StatelessWidget {
         title: const Text(kAppName),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {
-              print('You clicked the refresh button');
-            },
-            icon: const Icon(Icons.refresh),
-          )
+          StatefulBuilder(
+              builder: (context, setState){
+             return IconButton(
+               onPressed: () {setState(() {});},
+               icon: const Icon(Icons.refresh),
+             );
+          })
         ],
       ),
       body: Scaffold(

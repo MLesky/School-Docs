@@ -16,7 +16,6 @@ class ThemeProvider extends ChangeNotifier {
     _theme = isDarkMode ? light : dark;
     themePrefs = await SharedPreferences.getInstance();
     themePrefs.setBool('isDarkMode', isDarkMode);
-    print('Theme set to ${isDarkMode ? 'dark mode' : 'light mode'}');
     notifyListeners();
   }
 

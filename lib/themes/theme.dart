@@ -54,6 +54,7 @@ class Themes {
       foregroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
     )),
     appBarTheme: AppBarTheme(
+      backgroundColor: kPrimaryColor,
       titleTextStyle: GoogleFonts.rufina(
           textStyle: const TextStyle(
         fontWeight: FontWeight.bold,
@@ -113,6 +114,8 @@ class Themes {
         )),
       ),
       appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         titleTextStyle: GoogleFonts.rufina(
             textStyle: const TextStyle(
           fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
-# SCHOOL DOCS
+![logo](android/app/src/main/res//mipmap-hdpi/ic_launcher.png)
+# SCHOOL DOCS 
 
 ## A flutter app for reading and accessing class documents (PDFs)
 

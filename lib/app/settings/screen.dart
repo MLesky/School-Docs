@@ -7,11 +7,11 @@ import 'package:school_docs/utils/utils.dart';
 
 // TODO: fix resetting to initial route on hot reload and swapping the theme
 class SettingsPage extends StatelessWidget {
-  SettingsPage({super.key});
+  const SettingsPage({super.key});
 
-  bool isDownload = false;
   @override
   Widget build(BuildContext context) {
+    bool isDownload = false;
     var student = context.watch<StudentProvider>();
     return Scaffold(
       appBar: AppBar(
@@ -152,7 +152,7 @@ class SettingsPage extends StatelessWidget {
             ),
             Card(
               child: ListTile(
-                  title: Text('About School Docs'),
+                  title: const Text('About School Docs'),
                   onTap: () {
                     showAboutDialog(
                       context: context,

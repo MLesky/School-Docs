@@ -13,7 +13,7 @@ void main() async {
     providers: [
       ListenableProvider(create: (BuildContext context) => StudentProvider()),
       ChangeNotifierProvider(
-        create: (BuildContext context) => ThemeProvider(isDarkMode: prefs.getBool('isDarkMode') ?? false),
+       create: (BuildContext context) => ThemeProvider(isDarkMode: prefs.getBool('isDarkMode') ?? false),
       ),
     ],
     child: const MyApp(),

@@ -1,7 +1,6 @@
 import 'package:school_docs/app/registration/data/data.dart';
 import 'package:school_docs/app/registration/models/models.dart';
 
-// TODO: add departments for each school
 final List<Department> listOfColtechDepartments = [
   Department(name: 'Computer Engineering', abbreviation: 'CEN', options: listOfColtechCenOptions),
   Department(name: 'Electrical and Electronic Engineering', abbreviation: 'EEE', options: listOfColtechEeeOptions),

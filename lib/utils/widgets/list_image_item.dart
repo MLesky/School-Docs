@@ -30,8 +30,6 @@ class ListBookCardItem extends StatelessWidget {
           title: Text(titleText),
           subtitle: Text(subTitleText),
           onTap: () {
-            print(GoRouter.of(context).location);
-            print(tempParams);
             context.pushNamed(Routes.reading, params: tempParams);
           },
         ),

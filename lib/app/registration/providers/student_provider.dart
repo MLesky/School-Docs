@@ -4,24 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class StudentProvider extends ChangeNotifier {
   final Student _userInfo = Student();
-  // final String studSchool;
-  // final String studDepartment;
-  // final String studOption;
-  // final int studYear;
   late SharedPreferences studentPrefs;
-
-  // StudentProvider(
-  //     {required this.studSchool,
-  //     required this.studDepartment,
-  //     required this.studOption,
-  //     required this.studYear}) {
-  //   _userInfo = Student(
-  //       school: studSchool,
-  //       department: studDepartment,
-  //       option: studOption,
-  //       year: studYear);
-  //   getStudentInfo();
-  // }
 
   StudentProvider(){
     getStudentInfo();
@@ -53,7 +36,6 @@ class StudentProvider extends ChangeNotifier {
     studentPrefs.setString('department', _userInfo.department);
     studentPrefs.setString('option', _userInfo.option);
     studentPrefs.setInt('year', _userInfo.year);
-    print('Saved Info');
   }
 
   void getStudentInfo() async {
@@ -62,7 +44,6 @@ class StudentProvider extends ChangeNotifier {
     _userInfo.department = studentPrefs.getString('department') ?? '';
     _userInfo.option = studentPrefs.getString('option') ?? '';
     _userInfo.year = studentPrefs.getInt('year') ?? 0;
-    print('Gotten Info');
     notifyListeners();
   }
 

@@ -1,5 +1,3 @@
-
-
 import 'package:school_docs/app/registration/models/models.dart';
 
 class Department {

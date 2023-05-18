@@ -18,7 +18,7 @@ class SelectDepartmentPage extends StatelessWidget {
     return ScaffoldForSelectionList(
         title: 'Select Department',
         child: SelectionListScreen(
-          listItems: listOfDepartments,
+          listItems: listOfNahpiDepartments,
           path: Routes.selectOption,
           params: {'school': school},
           paramType: 'department',

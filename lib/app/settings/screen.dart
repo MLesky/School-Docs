@@ -170,7 +170,8 @@ class SettingsPage extends StatelessWidget {
                         ),
                         const Text(
                             '- Mbah Lesky\n'
-                            '- Jam Randy\n'),
+                            '- Jam Randy\n'
+                            '- Add your name'),
                       ],
                     );
                   }),
